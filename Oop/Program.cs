@@ -1,4 +1,6 @@
-﻿namespace Oop
+﻿using System.Reflection.Emit;
+
+namespace Oop
 {
     internal class Program : Test
     {
@@ -10,13 +12,66 @@
         {
             Connect();
         }
+        static void Strings()
+        {
+            int age = 34;
+            string content = "taner saydam:"  + age + " yaşında";
+            content = $"Taner Saydam {age} yaşında";
+            content=string.Join(" ","taner","Saydam");/// iki kelimeyi ayraçla birleştiirir
+            string[] names = { "taner", "saydam" };
+            content=string.Join(" ",names);
+            List<User> users = new()
+            {
+                new User(){Name="Ali Can Yücel",Email="alicanyucel@gmail.com"},
+                new User(){Name="taner saydam",Email="tanersaydam@gmail.com"}
+            };
+            content=string.Join("\n",users.Select(s=>s.Name).ToList());
+            content = @"c:\\";
+            Console.WriteLine(content);
+        }
+        static decimal Mulltiply(int a,int b)
+        {
+            return a * b;
 
+        }
+        static decimal Mulltiply(params int[] number) // sınırsız sayıda aprametre gondermek
+        {
+            decimal total = 0;
+            foreach(var num in number)
+            {
+               total*= num;
+
+            }
+            total = total * 5;
+            total += 5;
+            return total;
+    
+        }
+        internal class User
+        {
+           public string Name { get; set; }
+        public string Email { get; set; }
+        }
         static void Main(string[] args)
         {
-            Test2 test2 = new();
-            test2.Connect2();
+            
+            //Test2 test2 = new();
+            //test2.Connect2();
+            //m ref başlangıc değeri ister ,out ise başlangıc değerine gerek duymaz değişkeni tanımlamayada gerek duymaz
+            //Console.WriteLine("Hello, World!");
+        }
+        private static void OutRefKeywords()
+        {
+            int a = 1;
+            int b = 2;
+            int c = 0;
+            Sum(a, b, out c);
+        }
+       static void Sum(int a,int b,out int c)
+        {
+            // 
+            c= a + b;
 
-            Console.WriteLine("Hello, World!");
         }
         private static void LinqMethods()
         {
