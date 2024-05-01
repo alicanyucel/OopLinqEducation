@@ -1,8 +1,24 @@
 ﻿namespace Oop
 {
-    internal class Program
+    internal class Program : Test
     {
+        public override void Connect()
+        {
+            Console.WriteLine("asada");
+        }
+        public Program()
+        {
+            Connect();
+        }
+
         static void Main(string[] args)
+        {
+            Test2 test2 = new();
+            test2.Connect2();
+
+            Console.WriteLine("Hello, World!");
+        }
+        private static void LinqMethods()
         {
             // linq methods listeler içersiinde arama der bulma crud toplma vs işlemleri yapar
             string[] names = new string[2];
@@ -16,6 +32,9 @@
             //string name = namelist.First(p => p == "ali can yücel");,
             int index = namelist.FindIndex(p => p == "ali can yücel");
             namelist.Where(p => p == "ali casn yücel").ToList();
+            IEnumerable<string> nameEnumerable0 = new string[3];
+            ICollection<string> nameColection = new List<string>(); // EN SÜT SEVİYE İNTERFACE HEPSİNİ KARŞILAR EN TEPE
+
             //linq metodları
             /*/
              add=ekleme
@@ -32,11 +51,39 @@
             orderby=lambda expression ile a d an zeye kucukten buyuge listeyi sıralar
             orderbyDesc=listeyi büyükten küçüğe sıralar
              tolist=kaydı listeye çevirir
-              tıhashset=kaydı hassete çeviri.
-             
+              tOhashset=kaydı hassete çevirir.
+             IEnumerable=
              */
 
-            Console.WriteLine("Hello, World!");
         }
     }
+}
+internal abstract class Test
+{
+    public abstract void Connect();
+
+    public virtual void Connect2()
+    {
+        Console.WriteLine("test connect success");
+    }
+}
+internal class Test2 : Test
+{
+    public override void Connect()
+    {
+        Console.WriteLine("asada");
+    }
+    public override void Connect2()
+    {
+        base.Connect2();
+        Console.WriteLine("TEST2 SUCCESS");
+    }
+}
+internal class Test3 : Test
+{
+    public override void Connect()
+    {
+        Console.WriteLine();
+    }
+
 }
