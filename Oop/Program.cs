@@ -17,24 +17,24 @@ namespace Oop
         static void Strings()
         {
             int age = 34;
-            string content = "taner saydam:"  + age + " yaşında";
+            string content = "taner saydam:" + age + " yaşında";
             content = $"Taner Saydam {age} yaşında";
-            content=string.Join(" ","taner","Saydam");/// iki kelimeyi ayraçla birleştiirir
+            content = string.Join(" ", "taner", "Saydam");/// iki kelimeyi ayraçla birleştiirir
             string[] names = { "taner", "saydam" };
-            content=string.Join(" ",names);
+            content = string.Join(" ", names);
             List<User> users = new()
             {
                 new User(){Name="Ali Can Yücel",Email="alicanyucel@gmail.com"},
                 new User(){Name="taner saydam",Email="tanersaydam@gmail.com"}
             };
-            content=string.Join("\n",users.Select(s=>s.Name).ToList());
+            content = string.Join("\n", users.Select(s => s.Name).ToList());
             content = @"c:\\";
             Console.WriteLine(content);
-            char[] firstName = { 'A', 'b'};
-         
+            char[] firstName = { 'A', 'b' };
+
 
         }
-        static decimal Mulltiply(int a,int b)
+        static decimal Mulltiply(int a, int b)
         {
             return a * b;
 
@@ -42,20 +42,20 @@ namespace Oop
         static decimal Mulltiply(params int[] number) // sınırsız sayıda aprametre gondermek
         {
             decimal total = 0;
-            foreach(var num in number)
+            foreach (var num in number)
             {
-               total*= num;
+                total *= num;
 
             }
             total = total * 5;
             total += 5;
             return total;
-    
+
         }
         internal class User
         {
-           public string Name { get; set; }
-        public string Email { get; set; }
+            public string Name { get; set; }
+            public string Email { get; set; }
         }
         static void Main(string[] args)
         {
@@ -65,7 +65,7 @@ namespace Oop
                 Email = "eser@gmail.com"
 
             };
-            string userString=JsonSerializer.Serialize(user); // değişkeni string eçevir
+            string userString = JsonSerializer.Serialize(user); // değişkeni string eçevir
             object? userobject = JsonSerializer.Deserialize<User>(userString);
 
             bool isTrue = false; //0-1
@@ -83,10 +83,10 @@ namespace Oop
             int c = 0;
             Sum(a, b, out c);
         }
-       static void Sum(int a,int b,out int c)
+        static void Sum(int a, int b, out int c)
         {
             // 
-            c= a + b;
+            c = a + b;
 
         }
         private static void LinqMethods()
