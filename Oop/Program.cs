@@ -1,4 +1,6 @@
 ﻿using System.Reflection.Emit;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace Oop
 {
@@ -28,6 +30,9 @@ namespace Oop
             content=string.Join("\n",users.Select(s=>s.Name).ToList());
             content = @"c:\\";
             Console.WriteLine(content);
+            char[] firstName = { 'A', 'b'};
+         
+
         }
         static decimal Mulltiply(int a,int b)
         {
@@ -54,7 +59,18 @@ namespace Oop
         }
         static void Main(string[] args)
         {
-            
+            User user = new()
+            {
+                Name = "eser",
+                Email = "eser@gmail.com"
+
+            };
+            string userString=JsonSerializer.Serialize(user); // değişkeni string eçevir
+            object? userobject = JsonSerializer.Deserialize<User>(userString);
+
+            bool isTrue = false; //0-1
+            byte numbyte = 255; //0-255
+
             //Test2 test2 = new();
             //test2.Connect2();
             //m ref başlangıc değeri ister ,out ise başlangıc değerine gerek duymaz değişkeni tanımlamayada gerek duymaz
